@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :update, :destroy]
+  before_action :set_order, only: [:show, :update, :destroy, :status]
 
   def index
     @orders = Order.all
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
-    @order.customer_id = current_user.id
+    # @order.customer_id = current_user.id
     @order.status = "pending"
 
     if @product.inventory >= @order.quantity
@@ -47,13 +47,13 @@ class OrdersController < ApplicationController
   end
 
   def status
-    @order = Order.find(params[:id])
+    # @order = Order.find(params[:id])
     render json: { status: @order.status }
   end
 
   def history
-    @orders = Order.where(customer_id: params[:customer_id])
-    render json: @orders
+    # @orders = Order.where(customer_id: params[:customer_id])
+    # render json: @orders
   end
 
   private
@@ -63,6 +63,6 @@ class OrdersController < ApplicationController
   end
   
   def order_params
-    params.require(:order).permit(:quantity, :status, :product_id, :customer_id)
+    params.require(:order).permit(:quantity, :status, :product_id)
   end
 end

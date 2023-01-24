@@ -2,10 +2,18 @@
 
 one:
   name: MyString
-  price: 1.5
   inventory: 1
+  quantity: 1
+  gas_provider: MyString
+  cylinder_weight: 1.5
+  price: 1.5
+  order_type: MyString
 
 two:
   name: MyString
-  price: 1.5
   inventory: 1
+  quantity: 1
+  gas_provider: MyString
+  cylinder_weight: 1.5
+  price: 1.5
+  order_type: MyString
