@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  resources :orders, only: [:index, :show, :create, :update, :destroy] do
-    get :status, on: :member
-    get :history, on: :collection
-  end
-
-  resources :products, only: [:index]
+  resources :products
+  resources :users
+  resources :orders
+  resources :deliveries
+  resources :payments, only: [:show, :create, :update]
 end
