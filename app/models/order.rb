@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   # relationships
   belongs_to :user
   belongs_to :product
-  belongs_to :payment
+  has_one :payment
   has_one :delivery, dependent: :destroy
 
   def calculate_total_price
