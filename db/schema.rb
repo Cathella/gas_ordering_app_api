@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_034903) do
   create_table "orders", force: :cascade do |t|
     t.string "status"
     t.integer "quantity"
+    t.float "weight"
+    t.string "order_type"
     t.decimal "total_price"
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -52,8 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_034903) do
     t.string "name"
     t.float "price"
     t.integer "inventory"
-    t.float "weight"
-    t.string "order_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
